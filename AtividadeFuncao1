@@ -1,0 +1,21 @@
+#include <stdio.h>
+#define TAM 16
+int numeroDecimal, binario [TAM], aux;
+
+int resultadoBinario(int numeroDecimal){
+    for(aux= TAM -1; aux >= 0; aux--){
+		binario[aux] = (numeroDecimal % 2)==0 ? 0 : 1;
+		numeroDecimal = numeroDecimal /2;
+	}
+	printf("\n");
+	for(aux=0; aux < TAM; aux ++){
+		printf("%d", binario[aux]);
+	}
+}
+int main(int argc, char *argv[])
+{
+    	printf("Digite um numero decimal: ");
+	scanf("%d", &numeroDecimal);
+	resultadoBinario (numeroDecimal);
+	return 0;
+}
