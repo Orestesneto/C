@@ -14,7 +14,7 @@ int resultadoBinario(int numeroDecimal){
 }
 int main(int argc, char *argv[])
 {
-    	printf("Digite um numero decimal: ");
+    	printf("Digite um numero decimal:  ");
 	scanf("%d", &numeroDecimal);
 	resultadoBinario (numeroDecimal);
 	return 0;
