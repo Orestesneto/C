@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+
+float calculaDistancia(int x1, int y1, int x2, int y2) {
+	return sqrt( pow(x2-x1,2) + pow(y2-y1, 2) );
+}
+
+int main(int argc, char *argv[])
+{
+    setlocale(LC_ALL, "Portuguese");
+	int x1,y1, x2,y2;
+	float distancia;
+
+	printf("Informe a localização do ponto X1: ");
+	scanf("%d", &x1);
+
+	printf("Informe a localização do ponto  Y1: ");
+	scanf("%d", &y1);
+
+	printf("Informe a localização do ponto  X2: ");
+	scanf("%d", &x2);
+
+	printf("Informe a localização do ponto  Y2: ");
+	scanf("%d", &y2);
+
+	distancia = calculaDistancia(x1,y1,x2,y2);
+
+	printf("Distancia: %f",distancia);
+	return 0;
+}
