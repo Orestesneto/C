@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdio.h>
+#include <locale.h>
+
+float nota;
+
+float calculaMedia(float n1, float n2, float n3, char tipo) {
+	float media;
+
+	if (tipo == 'A') {
+        printf("Média = ");
+		media = (n1 + n2 + n3 ) / 3;
+    } else if (tipo == 'a') {
+        printf("Média = ");
+		media = (n1 + n2 + n3 ) / 5;
+	}else if (tipo == 'P') {
+	    printf("Média Ponderada = ");
+		media = (n1*5 + n2*3 + n3*2 )/10;
+    }else if (tipo == 'p') {
+        printf("Média Ponderada = ");
+		media = (n1*5 + n2*3 + n3*2)/10;
+    } else if (tipo == 'H') {
+        printf("Média Harmônica = ");
+		media = 5 / (1/n1 + 1/n2 + 1/n3);
+    } else if (tipo == 'h') {
+        printf("Média Harmônica = ");
+		media = 5 / (1/n1 + 1/n2 + 1/n3 );
+	}
+
+	return media;
+	}
+
+int main(int argc, char *argv[])
+{
+    setlocale(LC_ALL, "Portuguese");
+	float  calc;
+	float nota[5];
+	char tipo;
+	int i;
+
+
+	printf("Digite o tipo de media (arit.-A, ponder.-P, harmo.-H): \n");
+	scanf("%c", &tipo);
+
+	for (i=1; i<4;i++){
+
+	printf("Digite a %da  nota do aluno: ", i);
+	scanf("%f", &nota[i]);
+
+	}
+
+    calc = calculaMedia(nota[1], nota[2], nota[3], tipo);
+
+
+
+	printf( "%f", calc);
+
+
+	return 0;
+}
