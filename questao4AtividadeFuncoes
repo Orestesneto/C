@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <locale.h>
+
+
+float calculaPotencia(int valorX, int valorZ) {
+
+	int potencia, contador;
+	potencia = 1;
+	contador = 0;
+
+	while (contador != valorZ) {
+    	potencia = potencia * valorX;
+    	contador = contador + 1;
+    }
+
+	return potencia;
+}
+
+int main(int argc, char *argv[])
+{
+    setlocale(LC_ALL, "Portuguese");
+	int valorX, valorZ, calc;
+
+	printf("\nDigite o valor de X: ");
+	scanf("%d", &valorX);
+
+	printf("\nDigite o valor da potência Z positivo: ");
+	scanf("%d", &valorZ);
+
+	calc = calculaPotencia(valorX,valorZ);
+
+	printf("\n\nX elevado a Z = %d\n\n\n", calc);
+
+
+	return 0;
+}
