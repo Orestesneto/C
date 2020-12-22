@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<conio.h>
+int main(void)
+{
+  char texto[10];
+
+  printf("Digite um texto: ");
+  scanf("%s", texto);
+  gets(texto);
+
+  printf("O nome armazenado foi: %s", texto[i]);
+
+  getch();
+  return 0;
+
+}
