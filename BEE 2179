@@ -1,0 +1,100 @@
+#include <stdio.h>
+
+void imprimirMatrizEspiral(int tamanho, int Matriz[tamanho][tamanho], int startX, int startY);
+
+int main() {
+    int N;
+
+    scanf("%d", &N);
+
+    int margem = N - 1;
+    int tamanhoMatriz = N + margem * 2;
+    int matriz[tamanhoMatriz][tamanhoMatriz];
+
+    // Inicializa a matriz com 0
+    for (int i = 0; i < tamanhoMatriz; i++) {
+        for (int j = 0; j < tamanhoMatriz; j++) {
+            matriz[i][j] = 0;
+        }
+    }
+
+    // Preenche os elementos dentro da margem com contagem
+    int contador = 1;
+    for (int i = margem; i < tamanhoMatriz - margem; i++) {
+        for (int j = margem; j < tamanhoMatriz - margem; j++) {
+            matriz[i][j] = contador;
+            contador++;
+        }
+    }
+
+    int startX, startY;
+    scanf("%d %d", &startX, &startY);
+
+    startX = startX + margem;
+    startY = startY + margem;
+
+    imprimirMatrizEspiral(tamanhoMatriz, matriz, startX, startY);
+
+    return 0;
+}
+
+void imprimirMatrizEspiral(int tamanho, int Matriz[tamanho][tamanho], int startX, int startY) {
+    int x = startX;
+    int y = startY;
+
+    int contador = 0;
+    int direcao = 0;
+
+    int passos = 1;
+    int contPassos = 0;
+
+    int contadorLeitura = 0;
+
+    int totalNaoZero = 0;
+    int naoZeroContador = 0;
+
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            if (Matriz[i][j] != 0) {
+                totalNaoZero++;
+            }
+        }
+    }
+
+    while (naoZeroContador < totalNaoZero) {
+        contadorLeitura += 1;
+        if (Matriz[x][y] != 0) {
+            printf("%d", Matriz[x][y]);
+            naoZeroContador++;
+            if (naoZeroContador < totalNaoZero) {
+                printf(" ");
+            }
+        }
+
+        contador++;
+        switch (direcao) {
+            case 0:
+                y++;
+                break;
+            case 1:
+                x++;
+                break;
+            case 2:
+                y--;
+                break;
+            case 3:
+                x--;
+                break;
+        }
+        contPassos++;
+
+        if (contPassos == passos) {
+            contPassos = 0;
+            direcao = (direcao + 1) % 4;
+            if (direcao == 0 || direcao == 2) {
+                passos++;
+            }
+        }
+    }
+    printf("\n%d\n", contadorLeitura);
+}
